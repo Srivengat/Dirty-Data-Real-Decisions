@@ -9,6 +9,7 @@ import logging
 import sys
 from pathlib import Path
 
+from src.analysis.business_analysis import run_business_analysis
 from src.cleaning.category_normalization import normalize_categories
 from src.cleaning.pipeline import run_cleaning_pipeline
 from src.data.load_data import load_raw_data
@@ -98,7 +99,7 @@ def main() -> int:
 
     try:
         # Step 1: Load Data
-        if args.module in ("load", "profile", "quality", "duplicates", "dates", "categories", "clean", "all"):
+        if args.module in ("load", "profile", "quality", "duplicates", "dates", "categories", "clean", "analyze", "all"):
             logger.info("--- Executing Module 2: Data Loading ---")
             df = load_raw_data(args.raw_path)
             logger.info(f"Data loading successful. Loaded {len(df)} records.")
@@ -159,7 +160,7 @@ def main() -> int:
             )
 
         # Step 7: Cleaning Pipeline & Audit Logging
-        if args.module in ("clean", "all"):
+        if args.module in ("clean", "analyze", "all"):
             logger.info("--- Executing Module 8 & 9: Cleaning Pipeline & Audit Logging ---")
             cleaning_result = run_cleaning_pipeline(
                 raw_df=df,
@@ -172,7 +173,14 @@ def main() -> int:
                 f"({cleaning_result.quarantined_rows_count} quarantined, "
                 f"{cleaning_result.deduplicated_rows_count} deduplicated)."
             )
-            logger.info(f"Audit log saved to {args.log_path} ({cleaning_result.modifications_applied} entries).")
+            cleaned_df = cleaning_result.cleaned_df
+
+        # Step 8: Business Analysis
+        if args.module in ("analyze", "all"):
+            logger.info("--- Executing Module 10: Business Analysis ---")
+            analysis_report = run_business_analysis(cleaned_df=cleaned_df)
+            for q_id, ans in analysis_report.answers.items():
+                logger.info(f"[{q_id}] {ans.question_text} -> Verdict: {ans.verdict} (Confidence: {ans.confidence_level})")
 
         return 0
     except Exception as exc:

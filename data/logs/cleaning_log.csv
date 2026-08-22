@@ -1,157 +1,157 @@
 row_index,case_id,column_name,old_value,new_value,transformation_rule,reason,timestamp
-3,CS-1004,client_name,BlueStar Logistics ,BlueStar Logistics,WHITESPACE_TRIMMING,Trimmed irregular whitespace from column 'client_name',2026-08-23T00:17:54.726896
-108,CS-1109,client_name,Open Case Enterprise ,Open Case Enterprise,WHITESPACE_TRIMMING,Trimmed irregular whitespace from column 'client_name',2026-08-23T00:17:54.727884
-3,CS-1004,category,Billing ,Billing,WHITESPACE_TRIMMING,Trimmed irregular whitespace from column 'category',2026-08-23T00:17:54.728047
-108,CS-1109,category,Hardware ,Hardware,WHITESPACE_TRIMMING,Trimmed irregular whitespace from column 'category',2026-08-23T00:17:54.728704
-5,CS-1006,category,TECH SUPPORT,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'TECH SUPPORT' -> 'Technical Support',2026-08-23T00:17:54.736807
-8,CS-1009,category,billng,Billing,CATEGORY_NORMALIZATION,Mapped alias 'billng' -> 'Billing',2026-08-23T00:17:54.736849
-10,CS-1011,category,tech_support,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'tech_support' -> 'Technical Support',2026-08-23T00:17:54.736929
-17,CS-1018,category,TECH SUPPORT,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'TECH SUPPORT' -> 'Technical Support',2026-08-23T00:17:54.737002
-25,CS-1026,category,tech_support,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'tech_support' -> 'Technical Support',2026-08-23T00:17:54.737078
-105,CS-1106,category,,Uncategorized,CATEGORY_NORMALIZATION,Missing category defaulted to 'Uncategorized',2026-08-23T00:17:54.738297
-116,CS-1117,category,Tech-Support,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'Tech-Support' -> 'Technical Support',2026-08-23T00:17:54.738420
-117,CS-1118,category,BILLING-DEPT,Billing,CATEGORY_NORMALIZATION,Mapped alias 'BILLING-DEPT' -> 'Billing',2026-08-23T00:17:54.738437
-118,CS-1119,category,hardware_maint,Hardware,CATEGORY_NORMALIZATION,Mapped alias 'hardware_maint' -> 'Hardware',2026-08-23T00:17:54.738452
-5,CS-1006,priority,HIGH,High,PRIORITY_NORMALIZATION,Normalized priority 'HIGH' -> 'High',2026-08-23T00:17:54.738729
-106,CS-1107,priority,URGENT_OVERRIDE,Critical,PRIORITY_NORMALIZATION,Normalized priority 'URGENT_OVERRIDE' -> 'Critical',2026-08-23T00:17:54.739824
-0,CS-1001,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741068
-1,CS-1002,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741083
-2,CS-1003,triaged,Y,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Y' -> True,2026-08-23T00:17:54.741092
-3,CS-1004,triaged,Y,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Y' -> True,2026-08-23T00:17:54.741098
-4,CS-1005,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741105
-5,CS-1006,triaged,1,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag '1' -> True,2026-08-23T00:17:54.741110
-6,CS-1007,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741116
-7,CS-1008,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741123
-8,CS-1009,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741128
-9,CS-1010,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741134
-10,CS-1011,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741139
-11,CS-1012,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741145
-12,CS-1013,triaged,TRUE,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'TRUE' -> True,2026-08-23T00:17:54.741150
-13,CS-1014,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741155
-14,CS-1015,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741160
-15,CS-1016,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741166
-16,CS-1017,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741171
-17,CS-1018,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741175
-18,CS-1019,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741180
-19,CS-1020,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741196
-20,CS-1021,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741202
-21,CS-1022,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741207
-22,CS-1023,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741212
-23,CS-1024,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741217
-24,CS-1025,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741223
-25,CS-1026,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741228
-26,CS-1027,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741234
-27,CS-1028,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741239
-28,CS-1029,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741244
-29,CS-1030,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741249
-30,CS-1031,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741254
-31,CS-1032,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741260
-32,CS-1033,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741264
-33,CS-1034,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741270
-34,CS-1035,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741275
-35,CS-1036,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741280
-36,CS-1037,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741285
-37,CS-1038,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741290
-38,CS-1039,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741295
-39,CS-1040,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741300
-40,CS-1041,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741310
-41,CS-1042,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741316
-42,CS-1043,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741322
-43,CS-1044,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741328
-44,CS-1045,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741333
-45,CS-1046,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741338
-46,CS-1047,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741343
-47,CS-1048,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741349
-48,CS-1049,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741354
-49,CS-1050,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741359
-50,CS-1051,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741366
-51,CS-1052,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741371
-52,CS-1053,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741376
-53,CS-1054,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741381
-54,CS-1055,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741385
-55,CS-1056,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741390
-56,CS-1057,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741395
-57,CS-1058,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741400
-58,CS-1059,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741405
-59,CS-1060,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741410
-60,CS-1061,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741414
-61,CS-1062,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741419
-62,CS-1063,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741425
-63,CS-1064,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741430
-64,CS-1065,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741435
-65,CS-1066,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741440
-66,CS-1067,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741444
-67,CS-1068,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741449
-68,CS-1069,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741454
-69,CS-1070,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741459
-70,CS-1071,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741464
-71,CS-1072,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741470
-72,CS-1073,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741475
-73,CS-1074,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741480
-74,CS-1075,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741485
-75,CS-1076,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741490
-76,CS-1077,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741495
-77,CS-1078,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741501
-78,CS-1079,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741507
-79,CS-1080,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741512
-80,CS-1081,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741517
-81,CS-1082,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741522
-82,CS-1083,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741527
-83,CS-1084,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741532
-84,CS-1085,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741537
-85,CS-1086,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741542
-86,CS-1087,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741548
-87,CS-1088,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741553
-88,CS-1089,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741558
-89,CS-1090,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741563
-90,CS-1091,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741568
-91,CS-1092,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741574
-92,CS-1093,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741579
-93,CS-1094,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741584
-94,CS-1095,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741590
-95,CS-1096,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741595
-96,CS-1097,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741601
-97,CS-1098,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741606
-98,CS-1099,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741611
-99,CS-1100,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741616
-100,CS-1101,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741621
-101,CS-1102,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741627
-102,CS-1103,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741632
-103,CS-1104,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741637
-104,CS-1105,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741642
-105,CS-1106,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741647
-106,CS-1107,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741652
-107,CS-1108,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741657
-108,CS-1109,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741662
-109,,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741668
-110,CS-1111,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741673
-111,CS-1112,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741678
-112,CS-1113,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741683
-113,CS-1114,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741688
-114,CS-1115,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741694
-115,CS-1116,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741699
-116,CS-1117,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741704
-117,CS-1118,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:17:54.741710
-118,CS-1119,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741715
-119,CS-1120,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:17:54.741720
-103,CS-1104,contact_count,-5,4,METRIC_IMPUTATION,Imputed invalid/outlier contact count '-5' with cohort median (4),2026-08-23T00:17:54.742947
-104,CS-1105,contact_count,999999,4,METRIC_IMPUTATION,Imputed invalid/outlier contact count '999999' with cohort median (4),2026-08-23T00:17:54.742959
-2,CS-1003,intake_date,01/08/2024,2024-01-08,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-01-08',2026-08-23T00:17:54.743938
-2,CS-1003,closure_date,01/14/2024,2024-01-14,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-01-14',2026-08-23T00:17:54.743948
-3,CS-1004,intake_date,01/08/2024,2024-01-08,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-01-08',2026-08-23T00:17:54.744049
-3,CS-1004,closure_date,01/14/2024,2024-01-14,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-01-14',2026-08-23T00:17:54.744057
-11,CS-1012,intake_date,02/05/2024,2024-02-05,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-02-05',2026-08-23T00:17:54.745137
-11,CS-1012,closure_date,02/08/2024,2024-02-08,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-02-08',2026-08-23T00:17:54.745148
-100,CS-1101,RECORD,ACTIVE,QUARANTINED,TEMPORAL_ANOMALY_QUARANTINE,Critical date defect: NEGATIVE_DURATION,2026-08-23T00:17:54.752329
-101,CS-1102,RECORD,ACTIVE,QUARANTINED,TEMPORAL_ANOMALY_QUARANTINE,Critical date defect: FUTURE_INTAKE_DATE,2026-08-23T00:17:54.752401
-102,CS-1103,RECORD,ACTIVE,QUARANTINED,TEMPORAL_ANOMALY_QUARANTINE,Critical date defect: INVALID_CLOSURE_FORMAT,2026-08-23T00:17:54.752455
-109,,RECORD,ACTIVE,QUARANTINED,PRIMARY_KEY_QUARANTINE,Missing required primary key `case_id`,2026-08-23T00:17:54.752964
-112,CS-1113,intake_date,15/05/2024,2024-05-15,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-05-15',2026-08-23T00:17:54.753465
-112,CS-1113,closure_date,25/05/2024,2024-05-25,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-05-25',2026-08-23T00:17:54.753476
-113,CS-1114,intake_date,06/15/2024,2024-06-15,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-06-15',2026-08-23T00:17:54.753613
-113,CS-1114,closure_date,06/28/2024,2024-06-28,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-06-28',2026-08-23T00:17:54.753620
-114,CS-1115,intake_date,2024.07.01,2024-07-01,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-07-01',2026-08-23T00:17:54.753704
-114,CS-1115,closure_date,2024.07.08,2024-07-08,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-07-08',2026-08-23T00:17:54.753711
-1,CS-1002,RECORD,ACTIVE,MERGED_DUPLICATE,DEDUPLICATION_MERGE,Deduplicated redundant case matching primary canonical submission,2026-08-23T00:17:54.759684
-3,CS-1004,RECORD,ACTIVE,MERGED_DUPLICATE,DEDUPLICATION_MERGE,Deduplicated redundant case matching primary canonical submission,2026-08-23T00:17:54.759694
-108,CS-1109,RECORD,ACTIVE,MERGED_DUPLICATE,DEDUPLICATION_MERGE,Deduplicated redundant case matching primary canonical submission,2026-08-23T00:17:54.759696
+3,CS-1004,client_name,BlueStar Logistics ,BlueStar Logistics,WHITESPACE_TRIMMING,Trimmed irregular whitespace from column 'client_name',2026-08-23T00:25:45.947976
+108,CS-1109,client_name,Open Case Enterprise ,Open Case Enterprise,WHITESPACE_TRIMMING,Trimmed irregular whitespace from column 'client_name',2026-08-23T00:25:45.948660
+3,CS-1004,category,Billing ,Billing,WHITESPACE_TRIMMING,Trimmed irregular whitespace from column 'category',2026-08-23T00:25:45.948814
+108,CS-1109,category,Hardware ,Hardware,WHITESPACE_TRIMMING,Trimmed irregular whitespace from column 'category',2026-08-23T00:25:45.949468
+5,CS-1006,category,TECH SUPPORT,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'TECH SUPPORT' -> 'Technical Support',2026-08-23T00:25:45.964860
+8,CS-1009,category,billng,Billing,CATEGORY_NORMALIZATION,Mapped alias 'billng' -> 'Billing',2026-08-23T00:25:45.964905
+10,CS-1011,category,tech_support,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'tech_support' -> 'Technical Support',2026-08-23T00:25:45.964933
+17,CS-1018,category,TECH SUPPORT,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'TECH SUPPORT' -> 'Technical Support',2026-08-23T00:25:45.965000
+25,CS-1026,category,tech_support,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'tech_support' -> 'Technical Support',2026-08-23T00:25:45.965080
+105,CS-1106,category,,Uncategorized,CATEGORY_NORMALIZATION,Missing category defaulted to 'Uncategorized',2026-08-23T00:25:45.965859
+116,CS-1117,category,Tech-Support,Technical Support,CATEGORY_NORMALIZATION,Mapped alias 'Tech-Support' -> 'Technical Support',2026-08-23T00:25:45.965959
+117,CS-1118,category,BILLING-DEPT,Billing,CATEGORY_NORMALIZATION,Mapped alias 'BILLING-DEPT' -> 'Billing',2026-08-23T00:25:45.965980
+118,CS-1119,category,hardware_maint,Hardware,CATEGORY_NORMALIZATION,Mapped alias 'hardware_maint' -> 'Hardware',2026-08-23T00:25:45.965995
+5,CS-1006,priority,HIGH,High,PRIORITY_NORMALIZATION,Normalized priority 'HIGH' -> 'High',2026-08-23T00:25:45.966237
+106,CS-1107,priority,URGENT_OVERRIDE,Critical,PRIORITY_NORMALIZATION,Normalized priority 'URGENT_OVERRIDE' -> 'Critical',2026-08-23T00:25:45.967074
+0,CS-1001,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968278
+1,CS-1002,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968291
+2,CS-1003,triaged,Y,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Y' -> True,2026-08-23T00:25:45.968300
+3,CS-1004,triaged,Y,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Y' -> True,2026-08-23T00:25:45.968306
+4,CS-1005,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968313
+5,CS-1006,triaged,1,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag '1' -> True,2026-08-23T00:25:45.968319
+6,CS-1007,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968325
+7,CS-1008,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968331
+8,CS-1009,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968336
+9,CS-1010,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968341
+10,CS-1011,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968346
+11,CS-1012,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968352
+12,CS-1013,triaged,TRUE,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'TRUE' -> True,2026-08-23T00:25:45.968357
+13,CS-1014,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968362
+14,CS-1015,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968368
+15,CS-1016,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968373
+16,CS-1017,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968378
+17,CS-1018,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968383
+18,CS-1019,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968388
+19,CS-1020,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968393
+20,CS-1021,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968398
+21,CS-1022,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968403
+22,CS-1023,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968408
+23,CS-1024,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968413
+24,CS-1025,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968418
+25,CS-1026,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968423
+26,CS-1027,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968429
+27,CS-1028,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968434
+28,CS-1029,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968439
+29,CS-1030,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968444
+30,CS-1031,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968449
+31,CS-1032,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968454
+32,CS-1033,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968459
+33,CS-1034,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968464
+34,CS-1035,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968469
+35,CS-1036,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968477
+36,CS-1037,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968482
+37,CS-1038,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968487
+38,CS-1039,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968492
+39,CS-1040,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968497
+40,CS-1041,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968502
+41,CS-1042,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968507
+42,CS-1043,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968512
+43,CS-1044,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968517
+44,CS-1045,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968523
+45,CS-1046,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968527
+46,CS-1047,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968532
+47,CS-1048,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968537
+48,CS-1049,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968542
+49,CS-1050,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968547
+50,CS-1051,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968554
+51,CS-1052,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968558
+52,CS-1053,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968563
+53,CS-1054,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968569
+54,CS-1055,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968573
+55,CS-1056,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968578
+56,CS-1057,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968583
+57,CS-1058,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968589
+58,CS-1059,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968594
+59,CS-1060,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968599
+60,CS-1061,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968604
+61,CS-1062,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968609
+62,CS-1063,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968616
+63,CS-1064,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968621
+64,CS-1065,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968626
+65,CS-1066,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968631
+66,CS-1067,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968636
+67,CS-1068,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968641
+68,CS-1069,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968646
+69,CS-1070,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968651
+70,CS-1071,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968656
+71,CS-1072,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968661
+72,CS-1073,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968666
+73,CS-1074,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968671
+74,CS-1075,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968676
+75,CS-1076,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968681
+76,CS-1077,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968686
+77,CS-1078,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968691
+78,CS-1079,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968697
+79,CS-1080,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968702
+80,CS-1081,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968707
+81,CS-1082,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968712
+82,CS-1083,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968717
+83,CS-1084,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968722
+84,CS-1085,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968727
+85,CS-1086,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968732
+86,CS-1087,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968737
+87,CS-1088,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968743
+88,CS-1089,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968748
+89,CS-1090,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968753
+90,CS-1091,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968758
+91,CS-1092,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968763
+92,CS-1093,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968768
+93,CS-1094,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968773
+94,CS-1095,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968779
+95,CS-1096,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968784
+96,CS-1097,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968789
+97,CS-1098,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968794
+98,CS-1099,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968799
+99,CS-1100,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968804
+100,CS-1101,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968808
+101,CS-1102,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968813
+102,CS-1103,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968818
+103,CS-1104,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968823
+104,CS-1105,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968828
+105,CS-1106,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968833
+106,CS-1107,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968838
+107,CS-1108,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968843
+108,CS-1109,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968849
+109,,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968854
+110,CS-1111,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968859
+111,CS-1112,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968864
+112,CS-1113,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968869
+113,CS-1114,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968874
+114,CS-1115,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968880
+115,CS-1116,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968885
+116,CS-1117,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968890
+117,CS-1118,triaged,Yes,True,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'Yes' -> True,2026-08-23T00:25:45.968895
+118,CS-1119,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968900
+119,CS-1120,triaged,No,False,BOOLEAN_STANDARDIZATION,Standardized boolean triaged flag 'No' -> False,2026-08-23T00:25:45.968905
+103,CS-1104,contact_count,-5,4,METRIC_IMPUTATION,Imputed invalid/outlier contact count '-5' with cohort median (4),2026-08-23T00:25:45.970051
+104,CS-1105,contact_count,999999,4,METRIC_IMPUTATION,Imputed invalid/outlier contact count '999999' with cohort median (4),2026-08-23T00:25:45.970062
+2,CS-1003,intake_date,01/08/2024,2024-01-08,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-01-08',2026-08-23T00:25:45.971145
+2,CS-1003,closure_date,01/14/2024,2024-01-14,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-01-14',2026-08-23T00:25:45.971154
+3,CS-1004,intake_date,01/08/2024,2024-01-08,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-01-08',2026-08-23T00:25:45.971250
+3,CS-1004,closure_date,01/14/2024,2024-01-14,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-01-14',2026-08-23T00:25:45.971258
+11,CS-1012,intake_date,02/05/2024,2024-02-05,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-02-05',2026-08-23T00:25:45.971848
+11,CS-1012,closure_date,02/08/2024,2024-02-08,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-02-08',2026-08-23T00:25:45.971856
+100,CS-1101,RECORD,ACTIVE,QUARANTINED,TEMPORAL_ANOMALY_QUARANTINE,Critical date defect: NEGATIVE_DURATION,2026-08-23T00:25:45.978286
+101,CS-1102,RECORD,ACTIVE,QUARANTINED,TEMPORAL_ANOMALY_QUARANTINE,Critical date defect: FUTURE_INTAKE_DATE,2026-08-23T00:25:45.978560
+102,CS-1103,RECORD,ACTIVE,QUARANTINED,TEMPORAL_ANOMALY_QUARANTINE,Critical date defect: INVALID_CLOSURE_FORMAT,2026-08-23T00:25:45.978714
+109,,RECORD,ACTIVE,QUARANTINED,PRIMARY_KEY_QUARANTINE,Missing required primary key `case_id`,2026-08-23T00:25:45.979305
+112,CS-1113,intake_date,15/05/2024,2024-05-15,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-05-15',2026-08-23T00:25:45.979541
+112,CS-1113,closure_date,25/05/2024,2024-05-25,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-05-25',2026-08-23T00:25:45.979549
+113,CS-1114,intake_date,06/15/2024,2024-06-15,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-06-15',2026-08-23T00:25:45.979637
+113,CS-1114,closure_date,06/28/2024,2024-06-28,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-06-28',2026-08-23T00:25:45.979646
+114,CS-1115,intake_date,2024.07.01,2024-07-01,DATE_FORMAT_STANDARDIZATION,Standardized intake date to ISO-8601 '2024-07-01',2026-08-23T00:25:45.979723
+114,CS-1115,closure_date,2024.07.08,2024-07-08,DATE_FORMAT_STANDARDIZATION,Standardized closure date to ISO-8601 '2024-07-08',2026-08-23T00:25:45.979730
+1,CS-1002,RECORD,ACTIVE,MERGED_DUPLICATE,DEDUPLICATION_MERGE,Deduplicated redundant case matching primary canonical submission,2026-08-23T00:25:45.983611
+3,CS-1004,RECORD,ACTIVE,MERGED_DUPLICATE,DEDUPLICATION_MERGE,Deduplicated redundant case matching primary canonical submission,2026-08-23T00:25:45.983617
+108,CS-1109,RECORD,ACTIVE,MERGED_DUPLICATE,DEDUPLICATION_MERGE,Deduplicated redundant case matching primary canonical submission,2026-08-23T00:25:45.983619
