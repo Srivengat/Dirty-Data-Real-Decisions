@@ -1,0 +1,1 @@
+"""Publication-grade visualization package."""

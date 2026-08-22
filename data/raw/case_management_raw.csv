@@ -1,0 +1,121 @@
+case_id,client_name,category,priority,intake_date,closure_date,triage_date,triaged,contact_count,assigned_agent,status,resolution_notes
+CS-1001,Apex Solutions,Technical Support,High,2024-01-05,2024-01-08,2024-01-05,Yes,3,Agent_Smith,Closed,Resolved server connectivity error.
+CS-1002,Apex Solutions,Technical Support,High,2024-01-05,2024-01-08,2024-01-05,Yes,3,Agent_Smith,Closed,Resolved server connectivity error.
+CS-1003,BlueStar Logistics,Billing,Medium,01/08/2024,01/14/2024,01/08/2024,Y,2,Agent_Johnson,Closed,Invoice reconciliation completed.
+CS-1004,BlueStar Logistics ,Billing ,Medium,01/08/2024,01/14/2024,01/08/2024,Y,2,Agent_Johnson,Closed,Invoice reconciliation completed.
+CS-1005,Cascade Media,Hardware,Low,2024-01-12,2024-01-25,,No,5,Agent_Lee,Closed,Replaced faulty display panel.
+CS-1006,Delta Dynamics,TECH SUPPORT,HIGH,2024-01-15,2024-01-18,2024-01-15,1,4,Agent_Smith,Closed,Configured VPN client credentials.
+CS-1007,Epsilon Health,General Inquiry,Low,2024-01-18,2024-01-20,,No,1,Agent_Davis,Closed,Provided standard onboarding documentation.
+CS-1008,Falcon FinTech,Technical Support,Critical,2024-01-22,2024-01-23,2024-01-22,Yes,6,Agent_Taylor,Closed,Patched database deadlock during batch run.
+CS-1009,Galactic Retail,billng,Medium,2024-01-25,2024-02-02,2024-01-26,Yes,4,Agent_Johnson,Closed,Refund credit applied to customer account.
+CS-1010,Horizon Energy,Hardware,High,2024-01-29,2024-02-15,,No,7,Agent_Lee,Closed,Field service dispatched for sensor replacement.
+CS-1011,Infinity Labs,tech_support,Medium,2024-02-02,2024-02-07,2024-02-02,Yes,3,Agent_Smith,Closed,Restored user access permissions.
+CS-1012,Jupiter Foods,Account Access,Low,02/05/2024,02/08/2024,02/05/2024,Yes,2,Agent_Davis,Closed,Password reset link re-sent.
+CS-1013,Kestrel Security,Security Alert,High,2024-02-10,2024-02-12,2024-02-10,TRUE,5,Agent_Taylor,Closed,Investigated unauthorized login attempt.
+CS-1014,Lunar Systems,General Inquiry,Low,2024-02-14,2024-02-15,,No,1,Agent_Davis,Closed,Clarified API rate limits.
+CS-1015,Matrix Global,Technical Support,Medium,2024-02-18,2024-02-26,2024-02-19,Yes,4,Agent_Smith,Closed,Rebuilt corrupt local search index.
+CS-1016,Nexus Analytics,Billing,High,2024-02-22,2024-03-01,2024-02-22,Yes,3,Agent_Johnson,Closed,Corrected duplicate charge issue.
+CS-1017,Omega Tech,Hardware,Low,2024-02-26,2024-03-12,,No,6,Agent_Lee,Closed,Delivered replacement docking station.
+CS-1018,Pinnacle Corp,TECH SUPPORT,Critical,2024-03-01,2024-03-03,2024-03-01,Yes,8,Agent_Taylor,Closed,Mitigated DDoS traffic spike.
+CS-1019,Quantum Robotics,Technical Support,High,2024-03-05,2024-03-10,2024-03-05,Yes,4,Agent_Smith,Closed,Calibrated optical recognition pipeline.
+CS-1020,Radiant Solar,General Inquiry,Medium,2024-03-10,2024-03-15,,No,2,Agent_Davis,Closed,Updated billing contact address.
+CS-1021,Summit Healthcare,Security Alert,High,2024-03-14,2024-03-17,2024-03-14,Yes,5,Agent_Taylor,Closed,Audited suspicious egress packet log.
+CS-1022,Terra Transport,Billing,Low,2024-03-18,2024-03-28,,No,3,Agent_Johnson,Closed,Adjusted disputed mileage surcharge.
+CS-1023,Ultra Marine,Hardware,Medium,2024-03-22,2024-04-05,2024-03-23,Yes,5,Agent_Lee,Closed,Repaired thermal fan assembly.
+CS-1024,Vanguard Bio,Technical Support,High,2024-03-26,2024-04-01,2024-03-26,Yes,4,Agent_Smith,Closed,Upgraded incompatible driver package.
+CS-1025,Waveform Audio,General Inquiry,Low,2024-03-30,2024-04-02,,No,1,Agent_Davis,Closed,Sent licensing documentation.
+CS-1026,Xenon Networks,tech_support,Critical,2024-04-03,2024-04-06,2024-04-03,Yes,7,Agent_Taylor,Closed,Restored fiber backbone failover.
+CS-1027,Yield Farming Co,Billing,Medium,2024-04-07,2024-04-16,2024-04-08,Yes,3,Agent_Johnson,Closed,Corrected tax calculation percentage.
+CS-1028,Zenith Media,Account Access,Low,2024-04-12,2024-04-15,,No,2,Agent_Davis,Closed,Provisioned SSO single sign on.
+CS-1029,Apex Solutions,Technical Support,High,2024-04-16,2024-04-22,2024-04-16,Yes,4,Agent_Smith,Closed,Resolved cloud storage synchronization bug.
+CS-1030,BlueStar Logistics,Hardware,High,2024-04-20,2024-05-08,,No,6,Agent_Lee,Closed,Replaced barcode scanner module.
+CS-1031,Cascade Media,Billing,Medium,2024-04-25,2024-05-06,2024-04-26,Yes,3,Agent_Johnson,Closed,Processed annual subscription discount.
+CS-1032,Delta Dynamics,Technical Support,Low,2024-04-30,2024-05-09,,No,3,Agent_Smith,Closed,Assisted in report filter setup.
+CS-1033,Epsilon Health,Security Alert,High,2024-05-04,2024-05-08,2024-05-04,Yes,6,Agent_Taylor,Closed,Isolated compromised workstation.
+CS-1034,Falcon FinTech,Technical Support,Critical,2024-05-08,2024-05-12,2024-05-08,Yes,9,Agent_Taylor,Closed,Hotfixed transaction settlement API.
+CS-1035,Galactic Retail,General Inquiry,Low,2024-05-12,2024-05-15,,No,1,Agent_Davis,Closed,Provided product feature matrix.
+CS-1036,Horizon Energy,Hardware,Medium,2024-05-16,2024-06-02,2024-05-17,Yes,5,Agent_Lee,Closed,Replaced burned voltage regulator.
+CS-1037,Infinity Labs,Billing,High,2024-05-20,2024-05-30,2024-05-20,Yes,4,Agent_Johnson,Closed,Re-issued consolidated enterprise invoice.
+CS-1038,Jupiter Foods,Technical Support,Medium,2024-05-25,2024-06-04,2024-05-25,Yes,3,Agent_Smith,Closed,Fixed barcode printing layout.
+CS-1039,Kestrel Security,Security Alert,High,2024-05-29,2024-06-03,2024-05-29,Yes,5,Agent_Taylor,Closed,Updated perimeter firewall rules.
+CS-1040,Lunar Systems,Hardware,Low,2024-06-02,2024-06-20,,No,4,Agent_Lee,Closed,Installed extra memory module.
+CS-1041,Matrix Global,Technical Support,High,2024-06-06,2024-06-14,2024-06-06,Yes,5,Agent_Smith,Closed,Troubleshot slow query latency.
+CS-1042,Nexus Analytics,Billing,Medium,2024-06-10,2024-06-22,2024-06-11,Yes,3,Agent_Johnson,Closed,Adjusted tier-based storage charges.
+CS-1043,Omega Tech,General Inquiry,Low,2024-06-15,2024-06-18,,No,2,Agent_Davis,Closed,Supplied API webhook examples.
+CS-1044,Pinnacle Corp,Technical Support,Critical,2024-06-19,2024-06-24,2024-06-19,Yes,8,Agent_Taylor,Closed,Recovered corrupted replication partition.
+CS-1045,Quantum Robotics,Hardware,High,2024-06-24,2024-07-15,,No,7,Agent_Lee,Closed,Replaced motor driver PCB.
+CS-1046,Radiant Solar,Technical Support,Medium,2024-06-28,2024-07-09,2024-06-29,Yes,4,Agent_Smith,Closed,Upgraded firmware on collector array.
+CS-1047,Summit Healthcare,Security Alert,High,2024-07-02,2024-07-07,2024-07-02,Yes,6,Agent_Taylor,Closed,Revoked leaked service account tokens.
+CS-1048,Terra Transport,Billing,Low,2024-07-06,2024-07-19,,No,2,Agent_Johnson,Closed,Applied promotional credit voucher.
+CS-1049,Ultra Marine,Technical Support,High,2024-07-10,2024-07-18,2024-07-10,Yes,5,Agent_Smith,Closed,Fixed vessel telematics parser error.
+CS-1050,Vanguard Bio,Hardware,Medium,2024-07-15,2024-08-04,2024-07-16,Yes,6,Agent_Lee,Closed,Replaced spectrometer sensor bulb.
+CS-1051,Waveform Audio,General Inquiry,Low,2024-07-19,2024-07-22,,No,1,Agent_Davis,Closed,Provided software changelog details.
+CS-1052,Xenon Networks,Technical Support,Critical,2024-07-23,2024-07-29,2024-07-23,Yes,8,Agent_Taylor,Closed,Resolved BGP route flapping event.
+CS-1053,Yield Farming Co,Billing,Medium,2024-07-27,2024-08-09,2024-07-28,Yes,3,Agent_Johnson,Closed,Corrected automated currency exchange rate.
+CS-1054,Zenith Media,Account Access,Low,2024-08-01,2024-08-05,,No,2,Agent_Davis,Closed,Unlocked multi-factor auth lockout.
+CS-1055,Apex Solutions,Technical Support,High,2024-08-05,2024-08-16,2024-08-05,Yes,6,Agent_Smith,Closed,Re-indexed Elasticsearch cluster.
+CS-1056,BlueStar Logistics,Hardware,High,2024-08-09,2024-09-02,,No,8,Agent_Lee,Closed,Replaced handheld scanner batteries and charging dock.
+CS-1057,Cascade Media,Billing,Medium,2024-08-14,2024-08-28,2024-08-15,Yes,4,Agent_Johnson,Closed,Resolved payment gateway timeout issue.
+CS-1058,Delta Dynamics,Technical Support,Low,2024-08-18,2024-08-30,,No,3,Agent_Smith,Closed,Assisted in export formatting.
+CS-1059,Epsilon Health,Security Alert,High,2024-08-22,2024-08-29,2024-08-22,Yes,7,Agent_Taylor,Closed,Conducted malware scan on file repository.
+CS-1060,Falcon FinTech,Technical Support,Critical,2024-08-26,2024-09-02,2024-08-26,Yes,9,Agent_Taylor,Closed,Patched race condition in payment broker.
+CS-1061,Galactic Retail,General Inquiry,Low,2024-08-30,2024-09-04,,No,2,Agent_Davis,Closed,Shared API deprecation timeline.
+CS-1062,Horizon Energy,Hardware,Medium,2024-09-03,2024-09-25,2024-09-04,Yes,6,Agent_Lee,Closed,Replaced faulty power distribution unit.
+CS-1063,Infinity Labs,Billing,High,2024-09-07,2024-09-21,2024-09-07,Yes,5,Agent_Johnson,Closed,Resolved unapplied enterprise wire transfer.
+CS-1064,Jupiter Foods,Technical Support,Medium,2024-09-12,2024-09-24,2024-09-12,Yes,4,Agent_Smith,Closed,Fixed cold storage temperature alert trigger.
+CS-1065,Kestrel Security,Security Alert,High,2024-09-16,2024-09-24,2024-09-16,Yes,6,Agent_Taylor,Closed,Remediated SSL certificate expiration alert.
+CS-1066,Lunar Systems,Hardware,Low,2024-09-20,2024-10-12,,No,5,Agent_Lee,Closed,Replaced RAID array controller.
+CS-1067,Matrix Global,Technical Support,High,2024-09-25,2024-10-06,2024-09-25,Yes,6,Agent_Smith,Closed,Optimized memory cache eviction policy.
+CS-1068,Nexus Analytics,Billing,Medium,2024-09-29,2024-10-14,2024-09-30,Yes,4,Agent_Johnson,Closed,Clarified compute overage charges.
+CS-1069,Omega Tech,General Inquiry,Low,2024-10-03,2024-10-08,,No,2,Agent_Davis,Closed,Provided security compliance whitepaper.
+CS-1070,Pinnacle Corp,Technical Support,Critical,2024-10-08,2024-10-16,2024-10-08,Yes,10,Agent_Taylor,Closed,Recovered distributed cluster quorum.
+CS-1071,Quantum Robotics,Hardware,High,2024-10-12,2024-11-06,,No,9,Agent_Lee,Closed,Repaired robotic arm servo feedback encoder.
+CS-1072,Radiant Solar,Technical Support,Medium,2024-10-16,2024-10-30,2024-10-17,Yes,5,Agent_Smith,Closed,Restored inverter status telemetry feed.
+CS-1073,Summit Healthcare,Security Alert,High,2024-10-20,2024-10-29,2024-10-20,Yes,7,Agent_Taylor,Closed,Investigated brute force attempt on VPN.
+CS-1074,Terra Transport,Billing,Low,2024-10-25,2024-11-10,,No,3,Agent_Johnson,Closed,Resolved electronic billing portal dispute.
+CS-1075,Ultra Marine,Technical Support,High,2024-10-29,2024-11-10,2024-10-29,Yes,6,Agent_Smith,Closed,Fixed satellite connection retry loop.
+CS-1076,Vanguard Bio,Hardware,Medium,2024-11-03,2024-11-28,2024-11-04,Yes,7,Agent_Lee,Closed,Replaced centrifuge vibration damper.
+CS-1077,Waveform Audio,General Inquiry,Low,2024-11-07,2024-11-12,,No,2,Agent_Davis,Closed,Sent SDK documentation link.
+CS-1078,Xenon Networks,Technical Support,Critical,2024-11-12,2024-11-21,2024-11-12,Yes,9,Agent_Taylor,Closed,Rerouted compromised transit subnet.
+CS-1079,Yield Farming Co,Billing,Medium,2024-11-16,2024-12-02,2024-11-17,Yes,4,Agent_Johnson,Closed,Corrected quarterly volume rebate tier.
+CS-1080,Zenith Media,Account Access,Low,2024-11-20,2024-11-25,,No,2,Agent_Davis,Closed,Reset executive dashboard credentials.
+CS-1081,Apex Solutions,Technical Support,High,2024-11-24,2024-12-08,2024-11-24,Yes,7,Agent_Smith,Closed,Resolved asynchronous worker queue starvation.
+CS-1082,BlueStar Logistics,Hardware,High,2024-11-29,2024-12-28,,No,10,Agent_Lee,Closed,Replaced central conveyor tracking camera.
+CS-1083,Cascade Media,Billing,Medium,2024-12-03,2024-12-20,2024-12-04,Yes,5,Agent_Johnson,Closed,Reconciled international VAT charges.
+CS-1084,Delta Dynamics,Technical Support,Low,2024-12-07,2024-12-22,,No,3,Agent_Smith,Closed,Updated client desktop client build.
+CS-1085,Epsilon Health,Security Alert,High,2024-12-12,2024-12-23,2024-12-12,Yes,8,Agent_Taylor,Closed,Patched zero-day exploit in medical telemetry service.
+CS-1086,Falcon FinTech,Technical Support,Critical,2024-12-16,2024-12-27,2024-12-16,Yes,11,Agent_Taylor,Closed,Mitigated payment processing latency spike.
+CS-1087,Galactic Retail,General Inquiry,Low,2024-12-20,2024-12-26,,No,2,Agent_Davis,Closed,Provided holiday API rate limit exceptions.
+CS-1088,Horizon Energy,Hardware,Medium,2024-12-24,2025-01-20,2024-12-26,Yes,7,Agent_Lee,Closed,Replaced cold-damaged flow meter.
+CS-1089,Infinity Labs,Billing,High,2024-12-29,2025-01-15,2024-12-29,Yes,6,Agent_Johnson,Closed,Consolidated annual research grant billing.
+CS-1090,Jupiter Foods,Technical Support,Medium,2025-01-03,2025-01-18,2025-01-03,Yes,5,Agent_Smith,Closed,Fixed warehouse temperature threshold logging.
+CS-1091,Kestrel Security,Security Alert,High,2025-01-07,2025-01-19,2025-01-07,Yes,7,Agent_Taylor,Closed,Hardened internal DNS resolution servers.
+CS-1092,Lunar Systems,Hardware,Low,2025-01-11,2025-02-05,,No,6,Agent_Lee,Closed,Replaced failed chassis fan assembly.
+CS-1093,Matrix Global,Technical Support,High,2025-01-16,2025-01-30,2025-01-16,Yes,7,Agent_Smith,Closed,Resolved PostgreSQL connection pool exhaustion.
+CS-1094,Nexus Analytics,Billing,Medium,2025-01-20,2025-02-06,2025-01-21,Yes,5,Agent_Johnson,Closed,Adjusted multi-tenant storage apportionment.
+CS-1095,Omega Tech,General Inquiry,Low,2025-01-25,2025-01-31,,No,2,Agent_Davis,Closed,Answered SOC2 compliance inquiries.
+CS-1096,Pinnacle Corp,Technical Support,Critical,2025-01-29,2025-02-09,2025-01-29,Yes,12,Agent_Taylor,Closed,Restored active-passive database failover.
+CS-1097,Quantum Robotics,Hardware,High,2025-02-03,2025-03-02,,No,11,Agent_Lee,Closed,Replaced robotic arm main umbilical cable.
+CS-1098,Radiant Solar,Technical Support,Medium,2025-02-07,2025-02-24,2025-02-08,Yes,6,Agent_Smith,Closed,Calibrated weather station solar sensor.
+CS-1099,Summit Healthcare,Security Alert,High,2025-02-12,2025-02-23,2025-02-12,Yes,8,Agent_Taylor,Closed,Audited IAM role privilege escalation.
+CS-1100,Terra Transport,Billing,Low,2025-02-16,2025-03-05,,No,3,Agent_Johnson,Closed,Resolved recurring fuel surcharge billing discrepancy.
+CS-1101,Bad Date Corp,Technical Support,High,2024-03-10,2024-03-05,2024-03-10,Yes,3,Agent_Smith,Closed,Intake date occurred after closure date (negative duration).
+CS-1102,Future Corp,Technical Support,High,2099-01-01,2099-01-05,2099-01-01,Yes,2,Agent_Smith,Closed,Future intake date recorded incorrectly.
+CS-1103,Corrupt Date LLC,Hardware,Medium,2024-05-10,2024-13-45,,No,4,Agent_Lee,Closed,Impossible month and day in closure date.
+CS-1104,Negative Contacts Inc,Billing,Low,2024-06-01,2024-06-10,,No,-5,Agent_Johnson,Closed,Negative contact count recorded by mistake.
+CS-1105,Outlier Contacts Ltd,Technical Support,High,2024-07-01,2024-07-10,2024-07-01,Yes,999999,Agent_Smith,Closed,Spam bot inflated contact count to extreme outlier.
+CS-1106,Missing Category Corp,,Medium,2024-08-01,2024-08-10,2024-08-01,Yes,3,Agent_Davis,Closed,Missing category attribute.
+CS-1107,Invalid Priority Inc,Technical Support,URGENT_OVERRIDE,2024-09-01,2024-09-10,2024-09-01,Yes,4,Agent_Taylor,Closed,Non-standard priority string.
+CS-1108,Open Case Enterprise,Hardware,High,2025-02-20,,,No,2,Agent_Lee,Open,Still active case with no closure date.
+CS-1109,Open Case Enterprise ,Hardware ,High,2025-02-20,,,No,2,Agent_Lee,Open,Duplicate open case record.
+,Nameless Case Ltd,General Inquiry,Low,2024-10-01,2024-10-05,,No,1,Agent_Davis,Closed,Missing case identifier.
+CS-1111,Fuzzy Matching Co,Technical Support,Medium,2024-04-10,2024-04-15,2024-04-10,Yes,3,Agent_Smith,Closed,Resolved database lock timeout.
+CS-1112,Fuzzy Matching Company,Technical Support,Medium,2024-04-10,2024-04-15,2024-04-10,Yes,3,Agent_Smith,Closed,Resolved database lock timeout.
+CS-1113,European Date Format,Billing,High,15/05/2024,25/05/2024,15/05/2024,Yes,4,Agent_Johnson,Closed,European DD/MM/YYYY date formatting.
+CS-1114,US Slash Format,Billing,High,06/15/2024,06/28/2024,06/15/2024,Yes,3,Agent_Johnson,Closed,US MM/DD/YYYY date formatting.
+CS-1115,Dotted Date Format,General Inquiry,Low,2024.07.01,2024.07.08,,No,2,Agent_Davis,Closed,Dot-separated date formatting.
+CS-1116,Invalid Status Co,Technical Support,Low,2024-08-10,2024-08-15,,No,2,Agent_Smith,UNKNOWN_STATUS,Invalid status enum string.
+CS-1117,Hyphen Casing Dept,Tech-Support,High,2024-09-05,2024-09-12,2024-09-05,Yes,4,Agent_Smith,Closed,Hyphenated category variation.
+CS-1118,Billing Query Org,BILLING-DEPT,Medium,2024-10-10,2024-10-20,2024-10-10,Yes,3,Agent_Johnson,Closed,Unstandardized uppercase hyphenated category.
+CS-1119,Hardware Repairs Group,hardware_maint,High,2024-11-01,2024-11-20,,No,7,Agent_Lee,Closed,Underscore hardware category variation.
+CS-1120,Weird Alias Client,weird_unresolvable_category_x,Low,2024-12-01,2024-12-10,,No,2,Agent_Davis,Closed,Completely unresolvable novel category.
