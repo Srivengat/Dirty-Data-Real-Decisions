@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 from src.data.load_data import load_raw_data
+from src.profiling.profiling import generate_profiling_report
 from src.utils.logger import get_logger, setup_logging
 
 logger = get_logger("main")
@@ -91,10 +92,25 @@ def main() -> int:
     logger.info(f"Target Module: {args.module} | Raw Data Source: {args.raw_path}")
 
     try:
-        if args.module in ("load", "all"):
+        # Step 1: Load Data
+        if args.module in ("load", "profile", "all"):
             logger.info("--- Executing Module 2: Data Loading ---")
             df = load_raw_data(args.raw_path)
             logger.info(f"Data loading successful. Loaded {len(df)} records.")
+
+        # Step 2: Data Profiling
+        if args.module in ("profile", "all"):
+            logger.info("--- Executing Module 3: Data Profiling ---")
+            profiling_export = Path("reports/exports/profiling_summary.md")
+            profile = generate_profiling_report(
+                df=df,
+                source_name=args.raw_path.name,
+                output_path=profiling_export,
+            )
+            logger.info(
+                f"Profiling summary exported to {profiling_export} "
+                f"({profile.row_count} rows, {profile.column_count} columns)."
+            )
 
         return 0
     except Exception as exc:
