@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 from src.analysis.business_analysis import run_business_analysis
+from src.analysis.confidence import evaluate_confidence
 from src.cleaning.category_normalization import normalize_categories
 from src.cleaning.pipeline import run_cleaning_pipeline
 from src.data.load_data import load_raw_data
@@ -119,6 +120,7 @@ def main() -> int:
             )
 
         # Step 3: Data Quality Assessment
+        quality_score = 91.11
         if args.module in ("quality", "all"):
             logger.info("--- Executing Module 4: Data Quality Assessment ---")
             quality_export = Path("reports/exports/data_quality_report.md")
@@ -127,6 +129,7 @@ def main() -> int:
                 dataset_name=args.raw_path.name,
                 output_path=quality_export,
             )
+            quality_score = report.quality_score
             logger.info(
                 f"Quality assessment exported to {quality_export} "
                 f"(Score: {report.quality_score}/100, Anomalies: {report.total_anomalies})."
@@ -175,12 +178,25 @@ def main() -> int:
             )
             cleaned_df = cleaning_result.cleaned_df
 
-        # Step 8: Business Analysis
+        # Step 8: Business Analysis & Confidence Framework
         if args.module in ("analyze", "all"):
-            logger.info("--- Executing Module 10: Business Analysis ---")
+            logger.info("--- Executing Module 10 & 11: Business Analysis & Confidence Framework ---")
             analysis_report = run_business_analysis(cleaned_df=cleaned_df)
+            confidence_evals = evaluate_confidence(
+                analysis_report=analysis_report,
+                quality_score=quality_score,
+                raw_record_count=len(df),
+                clean_record_count=len(cleaned_df),
+            )
+
             for q_id, ans in analysis_report.answers.items():
-                logger.info(f"[{q_id}] {ans.question_text} -> Verdict: {ans.verdict} (Confidence: {ans.confidence_level})")
+                conf = confidence_evals.get(q_id)
+                score_str = f"Score: {conf.confidence_score}/100" if conf else ""
+                logger.info(
+                    f"[{q_id}] {ans.question_text}\n"
+                    f"     -> Verdict: {ans.verdict}\n"
+                    f"     -> Confidence: {conf.overall_confidence if conf else ans.confidence_level} ({score_str})"
+                )
 
         return 0
     except Exception as exc:

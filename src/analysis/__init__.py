@@ -6,10 +6,18 @@ from src.analysis.business_analysis import (
     QuestionAnswer,
     run_business_analysis,
 )
+from src.analysis.confidence import (
+    ConfidenceAssessment,
+    ConfidenceEvaluator,
+    evaluate_confidence,
+)
 
 __all__ = [
     "BusinessAnalyzer",
     "BusinessAnalysisReport",
     "QuestionAnswer",
     "run_business_analysis",
+    "ConfidenceAssessment",
+    "ConfidenceEvaluator",
+    "evaluate_confidence",
 ]
