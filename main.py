@@ -11,6 +11,7 @@ from pathlib import Path
 
 from src.data.load_data import load_raw_data
 from src.profiling.profiling import generate_profiling_report
+from src.quality.assessment import run_quality_assessment
 from src.utils.logger import get_logger, setup_logging
 
 logger = get_logger("main")
@@ -93,7 +94,7 @@ def main() -> int:
 
     try:
         # Step 1: Load Data
-        if args.module in ("load", "profile", "all"):
+        if args.module in ("load", "profile", "quality", "all"):
             logger.info("--- Executing Module 2: Data Loading ---")
             df = load_raw_data(args.raw_path)
             logger.info(f"Data loading successful. Loaded {len(df)} records.")
@@ -110,6 +111,20 @@ def main() -> int:
             logger.info(
                 f"Profiling summary exported to {profiling_export} "
                 f"({profile.row_count} rows, {profile.column_count} columns)."
+            )
+
+        # Step 3: Data Quality Assessment
+        if args.module in ("quality", "all"):
+            logger.info("--- Executing Module 4: Data Quality Assessment ---")
+            quality_export = Path("reports/exports/data_quality_report.md")
+            report = run_quality_assessment(
+                df=df,
+                dataset_name=args.raw_path.name,
+                output_path=quality_export,
+            )
+            logger.info(
+                f"Quality assessment exported to {quality_export} "
+                f"(Score: {report.quality_score}/100, Anomalies: {report.total_anomalies})."
             )
 
         return 0
