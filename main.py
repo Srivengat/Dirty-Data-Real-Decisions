@@ -158,12 +158,13 @@ def main() -> int:
                 f"Category normalization complete: {modified_count} fields standardized across {len(df_norm)} rows."
             )
 
-        # Step 7: Cleaning Pipeline
+        # Step 7: Cleaning Pipeline & Audit Logging
         if args.module in ("clean", "all"):
-            logger.info("--- Executing Module 8: Cleaning Pipeline ---")
+            logger.info("--- Executing Module 8 & 9: Cleaning Pipeline & Audit Logging ---")
             cleaning_result = run_cleaning_pipeline(
                 raw_df=df,
                 output_cleaned_path=args.cleaned_path,
+                output_log_path=args.log_path,
             )
             logger.info(
                 f"Cleaning pipeline completed: {cleaning_result.initial_rows} raw -> "
@@ -171,6 +172,7 @@ def main() -> int:
                 f"({cleaning_result.quarantined_rows_count} quarantined, "
                 f"{cleaning_result.deduplicated_rows_count} deduplicated)."
             )
+            logger.info(f"Audit log saved to {args.log_path} ({cleaning_result.modifications_applied} entries).")
 
         return 0
     except Exception as exc:

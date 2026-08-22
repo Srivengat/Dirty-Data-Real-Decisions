@@ -7,7 +7,13 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 import numpy as np
 import pandas as pd
 
-from src.cleaning.category_normalization import CategoryNormalizer, normalize_categories
+from src.cleaning.category_normalization import (
+    PRIORITY_ALIAS_MAP,
+    STATUS_ALIAS_MAP,
+    CategoryNormalizer,
+    normalize_categories,
+)
+from src.cleaning.cleaning_log import AuditLogger
 from src.quality.date_validation import DateValidator
 from src.quality.duplicates import DuplicateDetector
 from src.utils.logger import get_logger
@@ -21,6 +27,7 @@ class CleaningPipelineResult:
 
     cleaned_df: pd.DataFrame
     quarantined_df: pd.DataFrame
+    audit_logger: AuditLogger
     initial_rows: int
     final_rows: int
     deduplicated_rows_count: int
@@ -29,7 +36,7 @@ class CleaningPipelineResult:
 
 
 class CleaningPipeline:
-    """Production data cleaning transformer enforcing reproducibility and raw immutability."""
+    """Production data cleaning transformer enforcing reproducibility, auditability, and raw immutability."""
 
     def __init__(
         self,
@@ -47,97 +54,153 @@ class CleaningPipeline:
         self.date_validator = DateValidator(reference_cutoff=reference_date)
         self.category_normalizer = CategoryNormalizer()
 
-    def _normalize_text_columns(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Trim leading/trailing whitespace and collapse internal spaces across all string columns."""
-        df_out = df.copy()
-        for col in df_out.columns:
-            if df_out[col].dtype == object:
-                df_out[col] = (
-                    df_out[col]
-                    .fillna("")
-                    .astype(str)
-                    .str.strip()
-                    .str.replace(r"\s+", " ", regex=True)
-                )
-        return df_out
-
-    def _clean_triaged_flag(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Standardize the 'triaged' boolean flag."""
-        df_out = df.copy()
-        if "triaged" not in df_out.columns:
-            df_out["triaged"] = False
-            return df_out
-
-        truthy = {"yes", "y", "true", "1"}
-        falsy = {"no", "n", "false", "0"}
-
-        clean_flags = []
-        for _, row in df_out.iterrows():
-            val = str(row["triaged"]).strip().lower()
-            triage_date_val = str(row.get("triage_date", "")).strip()
-
-            if val in truthy:
-                clean_flags.append(True)
-            elif val in falsy:
-                clean_flags.append(False)
-            elif triage_date_val != "" and triage_date_val.lower() not in ("nan", "none", "nat"):
-                clean_flags.append(True)
-            else:
-                clean_flags.append(False)
-
-        df_out["triaged"] = clean_flags
-        return df_out
-
-    def _clean_contact_counts(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, int]:
-        """Sanitize contact counts by imputing negatives and capping extreme spam outliers."""
-        df_out = df.copy()
-        mod_count = 0
-        if "contact_count" not in df_out.columns:
-            return df_out, mod_count
-
-        numeric_contacts = pd.to_numeric(df_out["contact_count"], errors="coerce")
-        # Compute median of valid contact counts (0 to max_contact_count)
-        valid_mask = numeric_contacts.notna() & (numeric_contacts >= 0) & (numeric_contacts <= self.max_contact_count)
-        median_contact = int(numeric_contacts[valid_mask].median()) if valid_mask.any() else 3
-
-        cleaned_contacts: List[int] = []
-        for val in numeric_contacts:
-            if pd.isna(val) or val < 0 or val > self.max_contact_count:
-                cleaned_contacts.append(median_contact)
-                mod_count += 1
-            else:
-                cleaned_contacts.append(int(val))
-
-        df_out["contact_count"] = cleaned_contacts
-        return df_out, mod_count
-
-    def clean(self, raw_df: pd.DataFrame) -> CleaningPipelineResult:
-        """Execute the deterministic, multi-stage cleaning pipeline on raw data.
+    def clean(
+        self, raw_df: pd.DataFrame, audit_logger: Optional[AuditLogger] = None
+    ) -> CleaningPipelineResult:
+        """Execute the deterministic, multi-stage cleaning pipeline with row-level audit logging.
 
         Args:
             raw_df: Untouched raw input DataFrame.
+            audit_logger: Optional AuditLogger instance.
 
         Returns:
             CleaningPipelineResult: Structured results including cleaned and quarantined datasets.
         """
+        if audit_logger is None:
+            audit_logger = AuditLogger()
+
         initial_rows = len(raw_df)
-        logger.info(f"Initiating cleaning pipeline for {initial_rows} raw records...")
+        logger.info(f"Initiating audited cleaning pipeline for {initial_rows} raw records...")
 
-        # Stage 1: Text whitespace normalization
-        df_stage1 = self._normalize_text_columns(raw_df)
+        df_work = raw_df.copy()
 
-        # Stage 2: Category, Priority, and Status standardization
-        df_stage2, norm_records = normalize_categories(df_stage1)
-        modifications_count = sum(1 for r in norm_records if r.was_modified)
+        # Track case IDs for logging
+        raw_case_ids = df_work["case_id"].fillna("").astype(str).tolist() if "case_id" in df_work.columns else [""] * initial_rows
 
-        # Stage 3: Standardize Triaged flag
-        df_stage3 = self._clean_triaged_flag(df_stage2)
+        # --- Stage 1: Text whitespace normalization ---
+        for col in df_work.columns:
+            if df_work[col].dtype == object:
+                for idx, raw_val in enumerate(raw_df[col]):
+                    cleaned_val = (
+                        "" if pd.isna(raw_val) else " ".join(str(raw_val).strip().split())
+                    )
+                    if str(raw_val) != cleaned_val:
+                        audit_logger.log(
+                            row_index=idx,
+                            case_id=raw_case_ids[idx],
+                            column_name=col,
+                            old_value=raw_val,
+                            new_value=cleaned_val,
+                            transformation_rule="WHITESPACE_TRIMMING",
+                            reason=f"Trimmed irregular whitespace from column '{col}'",
+                        )
+                    df_work.at[idx, col] = cleaned_val
 
-        # Stage 4: Sanitize contact counts
-        df_stage4, contact_mods = self._clean_contact_counts(df_stage3)
-        modifications_count += contact_mods
+        # --- Stage 2: Category, Priority, and Status Standardization ---
+        if "category" in df_work.columns:
+            for idx, raw_val in enumerate(raw_df["category"]):
+                norm_cat, is_canon, was_mod, reason = self.category_normalizer.normalize_category_value(raw_val)
+                if was_mod:
+                    audit_logger.log(
+                        row_index=idx,
+                        case_id=raw_case_ids[idx],
+                        column_name="category",
+                        old_value=raw_val,
+                        new_value=norm_cat,
+                        transformation_rule="CATEGORY_NORMALIZATION",
+                        reason=reason,
+                    )
+                df_work.at[idx, "category"] = norm_cat
 
-        # Stage 5: Date validation & Duration computation
+        if "priority" in df_work.columns:
+            for idx, raw_val in enumerate(raw_df["priority"]):
+                token = self.category_normalizer.clean_text_token(raw_val)
+                if token in PRIORITY_ALIAS_MAP:
+                    norm_prio = PRIORITY_ALIAS_MAP[token]
+                    if str(raw_val) != norm_prio:
+                        audit_logger.log(
+                            row_index=idx,
+                            case_id=raw_case_ids[idx],
+                            column_name="priority",
+                            old_value=raw_val,
+                            new_value=norm_prio,
+                            transformation_rule="PRIORITY_NORMALIZATION",
+                            reason=f"Normalized priority '{raw_val}' -> '{norm_prio}'",
+                        )
+                    df_work.at[idx, "priority"] = norm_prio
+
+        if "status" in df_work.columns:
+            for idx, raw_val in enumerate(raw_df["status"]):
+                token = self.category_normalizer.clean_text_token(raw_val)
+                if token in STATUS_ALIAS_MAP:
+                    norm_status = STATUS_ALIAS_MAP[token]
+                    if str(raw_val) != norm_status:
+                        audit_logger.log(
+                            row_index=idx,
+                            case_id=raw_case_ids[idx],
+                            column_name="status",
+                            old_value=raw_val,
+                            new_value=norm_status,
+                            transformation_rule="STATUS_NORMALIZATION",
+                            reason=f"Normalized status '{raw_val}' -> '{norm_status}'",
+                        )
+                    df_work.at[idx, "status"] = norm_status
+
+        # --- Stage 3: Triaged Boolean Standardization ---
+        truthy = {"yes", "y", "true", "1"}
+        falsy = {"no", "n", "false", "0"}
+        if "triaged" in df_work.columns:
+            clean_triaged = []
+            for idx, raw_val in enumerate(raw_df["triaged"]):
+                val_str = str(raw_val).strip().lower()
+                triage_date_val = str(df_work.at[idx, "triage_date"] if "triage_date" in df_work.columns else "").strip()
+                if val_str in truthy:
+                    flag = True
+                elif val_str in falsy:
+                    flag = False
+                elif triage_date_val != "" and triage_date_val.lower() not in ("nan", "none", "nat"):
+                    flag = True
+                else:
+                    flag = False
+
+                if str(raw_val) != str(flag):
+                    audit_logger.log(
+                        row_index=idx,
+                        case_id=raw_case_ids[idx],
+                        column_name="triaged",
+                        old_value=raw_val,
+                        new_value=flag,
+                        transformation_rule="BOOLEAN_STANDARDIZATION",
+                        reason=f"Standardized boolean triaged flag '{raw_val}' -> {flag}",
+                    )
+                clean_triaged.append(flag)
+            df_work["triaged"] = clean_triaged
+
+        # --- Stage 4: Contact Count Sanitization ---
+        if "contact_count" in df_work.columns:
+            numeric_contacts = pd.to_numeric(raw_df["contact_count"], errors="coerce")
+            valid_mask = numeric_contacts.notna() & (numeric_contacts >= 0) & (numeric_contacts <= self.max_contact_count)
+            median_contact = int(numeric_contacts[valid_mask].median()) if valid_mask.any() else 3
+
+            cleaned_contacts = []
+            for idx, raw_val in enumerate(raw_df["contact_count"]):
+                num_val = numeric_contacts.iloc[idx]
+                if pd.isna(num_val) or num_val < 0 or num_val > self.max_contact_count:
+                    audit_logger.log(
+                        row_index=idx,
+                        case_id=raw_case_ids[idx],
+                        column_name="contact_count",
+                        old_value=raw_val,
+                        new_value=median_contact,
+                        transformation_rule="METRIC_IMPUTATION",
+                        reason=f"Imputed invalid/outlier contact count '{raw_val}' with cohort median ({median_contact})",
+                    )
+                    cleaned_contacts.append(median_contact)
+                else:
+                    cleaned_contacts.append(int(num_val))
+            df_work["contact_count"] = cleaned_contacts
+
+        # --- Stage 5: Date Parsing & Impossibility Quarantine ---
         parsed_intakes: List[Optional[str]] = []
         parsed_closures: List[Optional[str]] = []
         parsed_triages: List[Optional[str]] = []
@@ -145,27 +208,35 @@ class CleaningPipeline:
         quarantine_mask: List[bool] = []
         quarantine_reasons: List[str] = []
 
-        for idx, row in df_stage4.iterrows():
+        for idx, row in df_work.iterrows():
             case_id = str(row.get("case_id", "")).strip()
-            # Primary Key validation
+            # Missing case_id check
             if not case_id or case_id.lower() in ("nan", "none", "null"):
                 quarantine_mask.append(True)
-                quarantine_reasons.append("Missing primary key `case_id`")
+                reason = "Missing required primary key `case_id`"
+                quarantine_reasons.append(reason)
+                audit_logger.log(
+                    row_index=idx,
+                    case_id=case_id,
+                    column_name="RECORD",
+                    old_value="ACTIVE",
+                    new_value="QUARANTINED",
+                    transformation_rule="PRIMARY_KEY_QUARANTINE",
+                    reason=reason,
+                )
                 parsed_intakes.append(None)
                 parsed_closures.append(None)
                 parsed_triages.append(None)
                 duration_list.append(None)
                 continue
 
-            # Date validation
             date_res = self.date_validator.validate_record(
                 row_index=int(idx),
-                intake_str=row.get("intake_date", None),
-                closure_str=row.get("closure_date", None),
-                triage_str=row.get("triage_date", None),
+                intake_str=raw_df.at[idx, "intake_date"] if "intake_date" in raw_df.columns else None,
+                closure_str=raw_df.at[idx, "closure_date"] if "closure_date" in raw_df.columns else None,
+                triage_str=raw_df.at[idx, "triage_date"] if "triage_date" in raw_df.columns else None,
             )
 
-            # Check critical date errors that require record quarantine
             critical_errors = [
                 f for f in date_res.error_flags
                 if f in ("INVALID_INTAKE_FORMAT", "INVALID_CLOSURE_FORMAT", "FUTURE_INTAKE_DATE", "NEGATIVE_DURATION")
@@ -173,7 +244,17 @@ class CleaningPipeline:
 
             if critical_errors:
                 quarantine_mask.append(True)
-                quarantine_reasons.append(f"Critical date anomaly: {', '.join(critical_errors)}")
+                reason = f"Critical date defect: {', '.join(critical_errors)}"
+                quarantine_reasons.append(reason)
+                audit_logger.log(
+                    row_index=idx,
+                    case_id=case_id,
+                    column_name="RECORD",
+                    old_value="ACTIVE",
+                    new_value="QUARANTINED",
+                    transformation_rule="TEMPORAL_ANOMALY_QUARANTINE",
+                    reason=reason,
+                )
                 parsed_intakes.append(None)
                 parsed_closures.append(None)
                 parsed_triages.append(None)
@@ -181,35 +262,66 @@ class CleaningPipeline:
             else:
                 quarantine_mask.append(False)
                 quarantine_reasons.append("")
-                parsed_intakes.append(
-                    date_res.parsed_intake.strftime("%Y-%m-%d") if date_res.parsed_intake else None
-                )
-                parsed_closures.append(
-                    date_res.parsed_closure.strftime("%Y-%m-%d") if date_res.parsed_closure else None
-                )
-                parsed_triages.append(
-                    date_res.parsed_triage.strftime("%Y-%m-%d") if date_res.parsed_triage else None
-                )
+                intake_iso = date_res.parsed_intake.strftime("%Y-%m-%d") if date_res.parsed_intake else None
+                closure_iso = date_res.parsed_closure.strftime("%Y-%m-%d") if date_res.parsed_closure else None
+                triage_iso = date_res.parsed_triage.strftime("%Y-%m-%d") if date_res.parsed_triage else None
+
+                # Log date formatting modifications
+                if raw_df.at[idx, "intake_date"] != intake_iso and intake_iso:
+                    audit_logger.log(
+                        row_index=idx,
+                        case_id=case_id,
+                        column_name="intake_date",
+                        old_value=raw_df.at[idx, "intake_date"],
+                        new_value=intake_iso,
+                        transformation_rule="DATE_FORMAT_STANDARDIZATION",
+                        reason=f"Standardized intake date to ISO-8601 '{intake_iso}'",
+                    )
+                if raw_df.at[idx, "closure_date"] != closure_iso and closure_iso:
+                    audit_logger.log(
+                        row_index=idx,
+                        case_id=case_id,
+                        column_name="closure_date",
+                        old_value=raw_df.at[idx, "closure_date"],
+                        new_value=closure_iso,
+                        transformation_rule="DATE_FORMAT_STANDARDIZATION",
+                        reason=f"Standardized closure date to ISO-8601 '{closure_iso}'",
+                    )
+
+                parsed_intakes.append(intake_iso)
+                parsed_closures.append(closure_iso)
+                parsed_triages.append(triage_iso)
                 duration_list.append(date_res.duration_days)
 
-        df_stage4["intake_date"] = parsed_intakes
-        df_stage4["closure_date"] = parsed_closures
-        df_stage4["triage_date"] = parsed_triages
-        df_stage4["duration_days"] = duration_list
-        df_stage4["quarantine_reason"] = quarantine_reasons
+        df_work["intake_date"] = parsed_intakes
+        df_work["closure_date"] = parsed_closures
+        df_work["triage_date"] = parsed_triages
+        df_work["duration_days"] = duration_list
+        df_work["quarantine_reason"] = quarantine_reasons
 
-        # Stage 6: Separate Quarantined vs Clean Cohort
-        quarantined_df = df_stage4[quarantine_mask].copy()
-        clean_candidates = df_stage4[~np.array(quarantine_mask)].copy()
+        # Separate quarantined
+        quarantined_df = df_work[quarantine_mask].copy()
+        clean_candidates = df_work[~np.array(quarantine_mask)].copy()
 
-        # Stage 7: Deduplication (Keep first occurrence of exact and normalized duplicates)
+        # --- Stage 6: Deduplication ---
         dedupe_subset = ["client_name", "category", "intake_date", "closure_date"]
-        # Normalize for deduplication comparison
         dedupe_keys = clean_candidates[dedupe_subset].apply(
             lambda col: col.astype(str).str.lower().str.strip()
         )
         is_duplicate = dedupe_keys.duplicated(keep="first")
-        deduplicated_count = int(is_duplicate.sum())
+        dupe_indices = clean_candidates.index[is_duplicate].tolist()
+
+        for d_idx in dupe_indices:
+            c_id = raw_case_ids[d_idx]
+            audit_logger.log(
+                row_index=d_idx,
+                case_id=c_id,
+                column_name="RECORD",
+                old_value="ACTIVE",
+                new_value="MERGED_DUPLICATE",
+                transformation_rule="DEDUPLICATION_MERGE",
+                reason="Deduplicated redundant case matching primary canonical submission",
+            )
 
         cleaned_df = clean_candidates[~is_duplicate].copy()
         cleaned_df.drop(columns=["quarantine_reason"], inplace=True, errors="ignore")
@@ -217,53 +329,63 @@ class CleaningPipeline:
 
         final_rows = len(cleaned_df)
         quarantined_count = len(quarantined_df)
+        deduped_count = len(dupe_indices)
+        total_mods = len(audit_logger)
 
         logger.info(
-            f"Cleaning pipeline execution completed successfully:\n"
-            f"  - Initial Raw Records: {initial_rows}\n"
-            f"  - Quarantined Records: {quarantined_count}\n"
-            f"  - Deduplicated Redundant Records: {deduplicated_count}\n"
-            f"  - Clean Analytical Records: {final_rows}\n"
-            f"  - Modifications Applied: {modifications_count}"
+            f"Audited cleaning pipeline completed:\n"
+            f"  - Initial Rows: {initial_rows}\n"
+            f"  - Final Clean Rows: {final_rows}\n"
+            f"  - Quarantined: {quarantined_count}\n"
+            f"  - Deduplicated: {deduped_count}\n"
+            f"  - Audit Transformations Logged: {total_mods}"
         )
 
         return CleaningPipelineResult(
             cleaned_df=cleaned_df,
             quarantined_df=quarantined_df,
+            audit_logger=audit_logger,
             initial_rows=initial_rows,
             final_rows=final_rows,
-            deduplicated_rows_count=deduplicated_count,
+            deduplicated_rows_count=deduped_count,
             quarantined_rows_count=quarantined_count,
-            modifications_applied=modifications_count,
+            modifications_applied=total_mods,
         )
 
 
 def run_cleaning_pipeline(
     raw_path: Union[str, Path] = "data/raw/case_management_raw.csv",
     output_cleaned_path: Union[str, Path] = "data/cleaned/case_management_cleaned.csv",
+    output_log_path: Union[str, Path] = "data/logs/cleaning_log.csv",
     raw_df: Optional[pd.DataFrame] = None,
 ) -> CleaningPipelineResult:
-    """Execute cleaning pipeline and save standardized output CSV.
+    """Execute cleaning pipeline, save cleaned dataset, and write row-level audit log.
 
     Args:
         raw_path: Input path to raw CSV file.
         output_cleaned_path: Target path to save cleaned analytical dataset.
+        output_log_path: Target path to export cleaning audit log CSV.
         raw_df: Optional pre-loaded DataFrame.
 
     Returns:
-        CleaningPipelineResult: Cleaning summary and DataFrames.
+        CleaningPipelineResult: Cleaning summary, DataFrames, and audit logger.
     """
     if raw_df is None:
         from src.data.load_data import load_raw_data
 
         raw_df = load_raw_data(raw_path)
 
+    audit_logger = AuditLogger()
     pipeline = CleaningPipeline()
-    result = pipeline.clean(raw_df)
+    result = pipeline.clean(raw_df, audit_logger=audit_logger)
 
+    # Save cleaned CSV
     out_file = Path(output_cleaned_path)
     out_file.parent.mkdir(parents=True, exist_ok=True)
     result.cleaned_df.to_csv(out_file, index=False, encoding="utf-8")
     logger.info(f"Saved cleaned analytical dataset to: {out_file.resolve()}")
+
+    # Save audit log CSV
+    audit_logger.export_csv(output_log_path)
 
     return result
