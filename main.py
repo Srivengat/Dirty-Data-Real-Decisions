@@ -9,6 +9,7 @@ import logging
 import sys
 from pathlib import Path
 
+from src.data.load_data import load_raw_data
 from src.utils.logger import get_logger, setup_logging
 
 logger = get_logger("main")
@@ -89,12 +90,16 @@ def main() -> int:
     logger.info("Initializing Dirty Data, Real Decisions Pipeline")
     logger.info(f"Target Module: {args.module} | Raw Data Source: {args.raw_path}")
 
-    if not args.raw_path.exists():
-        logger.warning(f"Raw data file not found at: {args.raw_path}")
+    try:
+        if args.module in ("load", "all"):
+            logger.info("--- Executing Module 2: Data Loading ---")
+            df = load_raw_data(args.raw_path)
+            logger.info(f"Data loading successful. Loaded {len(df)} records.")
 
-    # Skeleton handler for Module 1 project setup
-    logger.info("Pipeline scaffolding initialized successfully.")
-    return 0
+        return 0
+    except Exception as exc:
+        logger.error(f"Pipeline execution failed: {exc}", exc_info=True)
+        return 1
 
 
 if __name__ == "__main__":
