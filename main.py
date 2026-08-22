@@ -11,6 +11,7 @@ from pathlib import Path
 
 from src.analysis.business_analysis import run_business_analysis
 from src.analysis.confidence import evaluate_confidence
+from src.analysis.limitations import generate_limitations_report
 from src.cleaning.category_normalization import normalize_categories
 from src.cleaning.pipeline import run_cleaning_pipeline
 from src.data.load_data import load_raw_data
@@ -197,6 +198,19 @@ def main() -> int:
                     f"     -> Verdict: {ans.verdict}\n"
                     f"     -> Confidence: {conf.overall_confidence if conf else ans.confidence_level} ({score_str})"
                 )
+
+            # Module 12: Analytical Limitations
+            logger.info("--- Executing Module 12: Analytical Limitations ---")
+            limitations_report = generate_limitations_report(
+                cleaned_df=cleaned_df,
+                raw_record_count=len(df),
+                output_path="reports/exports/analytical_limitations.md",
+            )
+            logger.info(
+                f"Limitations report generated: {limitations_report.total_limitation_count} items "
+                f"({limitations_report.high_severity_count} HIGH severity), "
+                f"{len(limitations_report.unsupported_conclusions)} unsupported conclusions documented."
+            )
 
         return 0
     except Exception as exc:

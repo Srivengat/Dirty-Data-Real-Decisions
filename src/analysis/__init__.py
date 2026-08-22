@@ -11,6 +11,12 @@ from src.analysis.confidence import (
     ConfidenceEvaluator,
     evaluate_confidence,
 )
+from src.analysis.limitations import (
+    AnalyticalLimitationsReport,
+    LimitationItem,
+    LimitationsAnalyzer,
+    generate_limitations_report,
+)
 
 __all__ = [
     "BusinessAnalyzer",
@@ -20,4 +26,8 @@ __all__ = [
     "ConfidenceAssessment",
     "ConfidenceEvaluator",
     "evaluate_confidence",
+    "AnalyticalLimitationsReport",
+    "LimitationItem",
+    "LimitationsAnalyzer",
+    "generate_limitations_report",
 ]
