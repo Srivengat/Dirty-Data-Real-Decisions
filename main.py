@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 from src.cleaning.category_normalization import normalize_categories
+from src.cleaning.pipeline import run_cleaning_pipeline
 from src.data.load_data import load_raw_data
 from src.profiling.profiling import generate_profiling_report
 from src.quality.assessment import run_quality_assessment
@@ -97,7 +98,7 @@ def main() -> int:
 
     try:
         # Step 1: Load Data
-        if args.module in ("load", "profile", "quality", "duplicates", "dates", "categories", "all"):
+        if args.module in ("load", "profile", "quality", "duplicates", "dates", "categories", "clean", "all"):
             logger.info("--- Executing Module 2: Data Loading ---")
             df = load_raw_data(args.raw_path)
             logger.info(f"Data loading successful. Loaded {len(df)} records.")
@@ -155,6 +156,20 @@ def main() -> int:
             modified_count = sum(1 for r in cat_records if r.was_modified)
             logger.info(
                 f"Category normalization complete: {modified_count} fields standardized across {len(df_norm)} rows."
+            )
+
+        # Step 7: Cleaning Pipeline
+        if args.module in ("clean", "all"):
+            logger.info("--- Executing Module 8: Cleaning Pipeline ---")
+            cleaning_result = run_cleaning_pipeline(
+                raw_df=df,
+                output_cleaned_path=args.cleaned_path,
+            )
+            logger.info(
+                f"Cleaning pipeline completed: {cleaning_result.initial_rows} raw -> "
+                f"{cleaning_result.final_rows} clean records saved to {args.cleaned_path} "
+                f"({cleaning_result.quarantined_rows_count} quarantined, "
+                f"{cleaning_result.deduplicated_rows_count} deduplicated)."
             )
 
         return 0

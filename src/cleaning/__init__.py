@@ -9,6 +9,11 @@ from src.cleaning.category_normalization import (
     NormalizationRecord,
     normalize_categories,
 )
+from src.cleaning.pipeline import (
+    CleaningPipeline,
+    CleaningPipelineResult,
+    run_cleaning_pipeline,
+)
 
 __all__ = [
     "CategoryNormalizer",
@@ -18,4 +23,7 @@ __all__ = [
     "CATEGORY_ALIAS_MAP",
     "PRIORITY_ALIAS_MAP",
     "STATUS_ALIAS_MAP",
+    "CleaningPipeline",
+    "CleaningPipelineResult",
+    "run_cleaning_pipeline",
 ]
