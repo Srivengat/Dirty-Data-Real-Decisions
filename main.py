@@ -12,6 +12,7 @@ from pathlib import Path
 from src.data.load_data import load_raw_data
 from src.profiling.profiling import generate_profiling_report
 from src.quality.assessment import run_quality_assessment
+from src.quality.date_validation import validate_dates
 from src.quality.duplicates import detect_duplicates
 from src.utils.logger import get_logger, setup_logging
 
@@ -95,7 +96,7 @@ def main() -> int:
 
     try:
         # Step 1: Load Data
-        if args.module in ("load", "profile", "quality", "duplicates", "all"):
+        if args.module in ("load", "profile", "quality", "duplicates", "dates", "all"):
             logger.info("--- Executing Module 2: Data Loading ---")
             df = load_raw_data(args.raw_path)
             logger.info(f"Data loading successful. Loaded {len(df)} records.")
@@ -135,6 +136,15 @@ def main() -> int:
             logger.info(
                 f"Duplicate detection completed: {len(dupe_report.duplicate_groups)} clusters identified "
                 f"({dupe_report.total_unique_records_affected} total rows affected)."
+            )
+
+        # Step 5: Date Validation
+        if args.module in ("dates", "all"):
+            logger.info("--- Executing Module 6: Date Validation ---")
+            date_summary = validate_dates(df=df)
+            logger.info(
+                f"Date validation completed: {date_summary.valid_date_records}/{date_summary.total_records} valid records. "
+                f"Mean closure duration: {date_summary.mean_duration_days} days."
             )
 
         return 0

@@ -6,6 +6,12 @@ from src.quality.assessment import (
     QualityReport,
     run_quality_assessment,
 )
+from src.quality.date_validation import (
+    DateValidationResult,
+    DateValidationSummary,
+    DateValidator,
+    validate_dates,
+)
 from src.quality.duplicates import (
     DuplicateDetector,
     DuplicateGroup,
@@ -24,4 +30,8 @@ __all__ = [
     "DuplicateMatch",
     "DuplicateReport",
     "detect_duplicates",
+    "DateValidator",
+    "DateValidationResult",
+    "DateValidationSummary",
+    "validate_dates",
 ]
