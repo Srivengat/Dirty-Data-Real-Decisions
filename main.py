@@ -12,6 +12,7 @@ from pathlib import Path
 from src.analysis.business_analysis import run_business_analysis
 from src.analysis.confidence import evaluate_confidence
 from src.analysis.limitations import generate_limitations_report
+from src.visualization.visualizations import generate_all_figures
 from src.cleaning.category_normalization import normalize_categories
 from src.cleaning.pipeline import run_cleaning_pipeline
 from src.data.load_data import load_raw_data
@@ -211,6 +212,15 @@ def main() -> int:
                 f"({limitations_report.high_severity_count} HIGH severity), "
                 f"{len(limitations_report.unsupported_conclusions)} unsupported conclusions documented."
             )
+
+            # Module 13: Visualizations
+            logger.info("--- Executing Module 13: Visualizations ---")
+            saved_figs = generate_all_figures(
+                raw_df=df,
+                cleaned_df=cleaned_df,
+                quality_score=quality_score,
+            )
+            logger.info(f"Generated {len(saved_figs)} figures to reports/figures/")
 
         return 0
     except Exception as exc:
