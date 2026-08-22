@@ -9,6 +9,7 @@ import logging
 import sys
 from pathlib import Path
 
+from src.cleaning.category_normalization import normalize_categories
 from src.data.load_data import load_raw_data
 from src.profiling.profiling import generate_profiling_report
 from src.quality.assessment import run_quality_assessment
@@ -96,7 +97,7 @@ def main() -> int:
 
     try:
         # Step 1: Load Data
-        if args.module in ("load", "profile", "quality", "duplicates", "dates", "all"):
+        if args.module in ("load", "profile", "quality", "duplicates", "dates", "categories", "all"):
             logger.info("--- Executing Module 2: Data Loading ---")
             df = load_raw_data(args.raw_path)
             logger.info(f"Data loading successful. Loaded {len(df)} records.")
@@ -145,6 +146,15 @@ def main() -> int:
             logger.info(
                 f"Date validation completed: {date_summary.valid_date_records}/{date_summary.total_records} valid records. "
                 f"Mean closure duration: {date_summary.mean_duration_days} days."
+            )
+
+        # Step 6: Category Normalization
+        if args.module in ("categories", "all"):
+            logger.info("--- Executing Module 7: Category Normalization ---")
+            df_norm, cat_records = normalize_categories(df=df)
+            modified_count = sum(1 for r in cat_records if r.was_modified)
+            logger.info(
+                f"Category normalization complete: {modified_count} fields standardized across {len(df_norm)} rows."
             )
 
         return 0
