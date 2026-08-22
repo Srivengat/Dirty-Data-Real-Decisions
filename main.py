@@ -12,6 +12,7 @@ from pathlib import Path
 from src.data.load_data import load_raw_data
 from src.profiling.profiling import generate_profiling_report
 from src.quality.assessment import run_quality_assessment
+from src.quality.duplicates import detect_duplicates
 from src.utils.logger import get_logger, setup_logging
 
 logger = get_logger("main")
@@ -94,7 +95,7 @@ def main() -> int:
 
     try:
         # Step 1: Load Data
-        if args.module in ("load", "profile", "quality", "all"):
+        if args.module in ("load", "profile", "quality", "duplicates", "all"):
             logger.info("--- Executing Module 2: Data Loading ---")
             df = load_raw_data(args.raw_path)
             logger.info(f"Data loading successful. Loaded {len(df)} records.")
@@ -125,6 +126,15 @@ def main() -> int:
             logger.info(
                 f"Quality assessment exported to {quality_export} "
                 f"(Score: {report.quality_score}/100, Anomalies: {report.total_anomalies})."
+            )
+
+        # Step 4: Duplicate Detection
+        if args.module in ("duplicates", "all"):
+            logger.info("--- Executing Module 5: Duplicate Detection ---")
+            dupe_report = detect_duplicates(df=df)
+            logger.info(
+                f"Duplicate detection completed: {len(dupe_report.duplicate_groups)} clusters identified "
+                f"({dupe_report.total_unique_records_affected} total rows affected)."
             )
 
         return 0
