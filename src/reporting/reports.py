@@ -250,6 +250,15 @@ class ReportGenerator:
             ]
             for lim in ans.limitations:
                 lines.append(f"- {lim}")
+            
+            if ans.recommendation:
+                lines += [
+                    "",
+                    "### Business Recommendation",
+                    "",
+                    f"> {ans.recommendation}",
+                ]
+                
             lines += ["", "---", ""]
 
         # Add supporting figures
@@ -430,6 +439,13 @@ class ReportGenerator:
                 for rf in conf.risk_factors:
                     lines.append(f"- {rf}")
                 lines.append("")
+                
+            if ans.recommendation:
+                lines += [
+                    "**Operational Recommendation:**",
+                    f"> {ans.recommendation}",
+                    "",
+                ]
 
         lines += [
             "---",

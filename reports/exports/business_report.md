@@ -2,7 +2,7 @@
 
 > **Brite Sparks 2026 — Dirty Data, Real Decisions**
 
-**Generated:** 2026-08-23 11:02  
+**Generated:** 2026-08-23 11:54  
 **Analytical Records Used:** 111 closed cases  
 **Raw Dataset Size:** 120 records
 
@@ -37,6 +37,10 @@ linear_regression: {'monthly_slope_days': 0.862, 'r_squared': 0.2597, 'p_value':
 - Excludes 4 quarantined impossible cases and active open cases (potential right-censoring for latest cohort).
 - Does not account for external staffing changes or holiday calendar seasonality.
 
+### Business Recommendation
+
+> Monitor intake queue volume and allocate additional personnel if the monthly volume exceeds historical baselines to counteract the rising resolution latency.
+
 ---
 
 ## Q2: What is driving the increase in closure times?
@@ -68,6 +72,10 @@ ols_regression: {'adj_r_squared': 0.8268, 'f_pvalue': 2.3719005900087395e-34}
 - Unmeasured variables (e.g., ticket queue wait time, agent tenure/shift, SLA tiers) could explain residual variance.
 - Hardware cases may involve physical shipping latency not captured in system metadata.
 
+### Business Recommendation
+
+> Initiate a targeted vendor SLA review for Hardware cases and deploy improved first-contact-resolution tooling to curb unnecessary escalation contacts.
+
 ---
 
 ## Q3: Did triage improve high priority closure time?
@@ -97,6 +105,10 @@ category_distribution_by_triage: {False: {'Billing': 0, 'Hardware': 8, 'Security
 
 - Hardware cases without triage involve external vendor RMA constraints that inflate resolution time independently of triage.
 - Lack of agent-level assignment timestamps prevents isolating triage velocity from agent work speed.
+
+### Business Recommendation
+
+> Standardize the triage routing for all High and Critical cases across categories, as it demonstrates a statistically significant reduction in closure duration.
 
 ---
 

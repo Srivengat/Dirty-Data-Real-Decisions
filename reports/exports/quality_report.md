@@ -2,7 +2,7 @@
 
 > **Brite Sparks 2026 — Dirty Data, Real Decisions**
 
-**Generated:** 2026-08-23 11:02  
+**Generated:** 2026-08-23 11:54  
 **Composite Quality Score:** 91.1 / 100
 
 ---

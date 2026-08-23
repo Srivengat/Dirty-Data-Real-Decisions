@@ -2,7 +2,7 @@
 
 > **Brite Sparks 2026 — Dirty Data, Real Decisions**
 
-**Generated:** 2026-08-23 11:02  
+**Generated:** 2026-08-23 11:54  
 **Pipeline:** Raw → Profile → Quality → Deduplicate → Clean → Analyse → Visualise
 
 ---
@@ -35,6 +35,9 @@
 - Confounding Penalty: -0.0
 - **Total: 87.6/100**
 
+**Operational Recommendation:**
+> Monitor intake queue volume and allocate additional personnel if the monthly volume exceeds historical baselines to counteract the rising resolution latency.
+
 ### Q2: What is driving the increase in closure times?
 
 | Field | Value |
@@ -52,6 +55,9 @@
 
 **Risk Factors:**
 - Hardware turnaround is partially driven by external vendor RMA logistics rather than agent labor.
+
+**Operational Recommendation:**
+> Initiate a targeted vendor SLA review for Hardware cases and deploy improved first-contact-resolution tooling to curb unnecessary escalation contacts.
 
 ### Q3: Did triage improve high priority closure time?
 
@@ -71,6 +77,9 @@
 **Risk Factors:**
 - Untriaged High Priority cohort is relatively small (n = 8).
 - Untriaged cohort contains a disproportionate share of Hardware cases (category confounding).
+
+**Operational Recommendation:**
+> Standardize the triage routing for all High and Critical cases across categories, as it demonstrates a statistically significant reduction in closure duration.
 
 ---
 

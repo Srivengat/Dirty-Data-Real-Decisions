@@ -26,6 +26,7 @@ class QuestionAnswer:
     statistical_metrics: Dict[str, Any] = field(default_factory=dict)
     assumptions: List[str] = field(default_factory=list)
     limitations: List[str] = field(default_factory=list)
+    recommendation: str = ""
     supporting_plots: List[str] = field(default_factory=list)
 
 
@@ -166,6 +167,7 @@ class BusinessAnalyzer:
             statistical_metrics=stats_payload,
             assumptions=assumptions,
             limitations=limitations,
+            recommendation="Monitor intake queue volume and allocate additional personnel if the monthly volume exceeds historical baselines to counteract the rising resolution latency.",
             supporting_plots=["reports/figures/02_closure_trend.png"],
         )
 
@@ -284,6 +286,7 @@ class BusinessAnalyzer:
             statistical_metrics=stats_payload,
             assumptions=assumptions,
             limitations=limitations,
+            recommendation="Initiate a targeted vendor SLA review for Hardware cases and deploy improved first-contact-resolution tooling to curb unnecessary escalation contacts.",
             supporting_plots=["reports/figures/03_category_distribution.png"],
         )
 
@@ -409,6 +412,7 @@ class BusinessAnalyzer:
             statistical_metrics=stats_payload,
             assumptions=assumptions,
             limitations=limitations,
+            recommendation="Standardize the triage routing for all High and Critical cases across categories, as it demonstrates a statistically significant reduction in closure duration.",
             supporting_plots=["reports/figures/02_closure_trend.png", "reports/figures/03_category_distribution.png"],
         )
 
