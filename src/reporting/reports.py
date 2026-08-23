@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 
 import pandas as pd
 
@@ -218,7 +218,7 @@ class ReportGenerator:
         ]
 
         for q_id, ans in self.analysis.answers.items():
-            conf = self.confidence.get(q_id)
+            self.confidence.get(q_id)
             lines += [
                 f"## {q_id}: {ans.question_text}",
                 "",

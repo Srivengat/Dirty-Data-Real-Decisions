@@ -1,12 +1,9 @@
 """Unit tests for Module 6: Date Validation."""
 
 import pandas as pd
-import pytest
 
 from src.data.load_data import load_raw_data
 from src.quality.date_validation import (
-    DateValidationResult,
-    DateValidationSummary,
     DateValidator,
     validate_dates,
 )

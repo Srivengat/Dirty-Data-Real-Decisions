@@ -1,8 +1,8 @@
 """Reproducible data cleaning pipeline transforming raw export into analytical dataset."""
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import List, Optional, Union
 
 import numpy as np
 import pandas as pd
@@ -11,11 +11,9 @@ from src.cleaning.category_normalization import (
     PRIORITY_ALIAS_MAP,
     STATUS_ALIAS_MAP,
     CategoryNormalizer,
-    normalize_categories,
 )
 from src.cleaning.cleaning_log import AuditLogger
 from src.quality.date_validation import DateValidator
-from src.quality.duplicates import DuplicateDetector
 from src.utils.logger import get_logger
 
 logger = get_logger(__name__)

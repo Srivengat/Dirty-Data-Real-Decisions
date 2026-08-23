@@ -1,13 +1,12 @@
 """Statistical business analysis engine answering core operational questions with mathematical rigor."""
 
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Union
 
 import numpy as np
 import pandas as pd
 from scipy import stats
-import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
 from src.utils.logger import get_logger

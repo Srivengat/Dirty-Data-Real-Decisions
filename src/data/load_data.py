@@ -1,7 +1,6 @@
 """Robust data loading and schema validation module."""
 
 import csv
-import io
 from pathlib import Path
 from typing import List, Optional, Sequence, Union
 

@@ -1,12 +1,10 @@
 """Unit tests for Module 5: Duplicate Detection."""
 
 import pandas as pd
-import pytest
 
 from src.data.load_data import load_raw_data
 from src.quality.duplicates import (
     DuplicateDetector,
-    DuplicateGroup,
     DuplicateMatch,
     detect_duplicates,
 )

@@ -3,11 +3,9 @@
 from pathlib import Path
 
 import pandas as pd
-import pytest
 
 from src.cleaning.pipeline import (
     CleaningPipeline,
-    CleaningPipelineResult,
     run_cleaning_pipeline,
 )
 from src.data.load_data import load_raw_data

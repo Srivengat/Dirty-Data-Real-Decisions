@@ -1,6 +1,5 @@
 """Unit tests for Module 13: Project Visualizations."""
 
-from pathlib import Path
 
 import pandas as pd
 import pytest

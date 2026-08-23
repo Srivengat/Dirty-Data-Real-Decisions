@@ -1,6 +1,5 @@
 """Unit tests for Module 11: Confidence Evaluation Framework."""
 
-import pandas as pd
 import pytest
 
 from src.analysis.business_analysis import BusinessAnalyzer, QuestionAnswer

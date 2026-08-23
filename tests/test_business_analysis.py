@@ -4,9 +4,7 @@ import pandas as pd
 import pytest
 
 from src.analysis.business_analysis import (
-    BusinessAnalysisReport,
     BusinessAnalyzer,
-    QuestionAnswer,
     run_business_analysis,
 )
 from src.cleaning.pipeline import run_cleaning_pipeline

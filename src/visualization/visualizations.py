@@ -1,12 +1,11 @@
 """Publication-quality visualization engine for Dirty Data, Real Decisions."""
 
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict
 
 import matplotlib
 matplotlib.use("Agg")  # Non-interactive backend for server/CI rendering
 import matplotlib.pyplot as plt
-import matplotlib.ticker as mticker
 import matplotlib.patches as mpatches
 import numpy as np
 import pandas as pd

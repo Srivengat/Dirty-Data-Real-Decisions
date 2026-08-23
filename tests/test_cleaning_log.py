@@ -3,9 +3,8 @@
 from pathlib import Path
 
 import pandas as pd
-import pytest
 
-from src.cleaning.cleaning_log import AuditLogger, CleaningAuditEntry
+from src.cleaning.cleaning_log import AuditLogger
 from src.cleaning.pipeline import run_cleaning_pipeline
 from src.data.load_data import load_raw_data
 

@@ -1,10 +1,8 @@
 """Quantitative confidence evaluation framework grading analytical conclusions."""
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Dict, List
 
-import numpy as np
-import pandas as pd
 
 from src.analysis.business_analysis import BusinessAnalysisReport, QuestionAnswer
 from src.utils.logger import get_logger

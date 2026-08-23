@@ -1,6 +1,5 @@
 """Unit tests for Module 2: Robust Data Loading."""
 
-import tempfile
 from pathlib import Path
 
 import pandas as pd

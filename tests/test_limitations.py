@@ -5,8 +5,6 @@ import pandas as pd
 from pathlib import Path
 
 from src.analysis.limitations import (
-    AnalyticalLimitationsReport,
-    LimitationItem,
     LimitationsAnalyzer,
     generate_limitations_report,
 )

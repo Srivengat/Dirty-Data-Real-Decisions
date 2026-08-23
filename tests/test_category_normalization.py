@@ -1,12 +1,10 @@
 """Unit tests for Module 7: Category Normalization."""
 
 import pandas as pd
-import pytest
 
 from src.cleaning.category_normalization import (
     CANONICAL_CATEGORIES,
     CategoryNormalizer,
-    NormalizationRecord,
     normalize_categories,
 )
 from src.data.load_data import load_raw_data

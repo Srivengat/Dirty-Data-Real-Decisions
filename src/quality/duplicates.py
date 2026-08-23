@@ -2,7 +2,7 @@
 
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Set
 
 import pandas as pd
 from rapidfuzz import fuzz

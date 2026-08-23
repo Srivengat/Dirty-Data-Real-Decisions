@@ -6,9 +6,7 @@ import pandas as pd
 
 from src.data.load_data import load_raw_data
 from src.profiling.profiling import (
-    ColumnProfile,
     DataProfiler,
-    DatasetProfile,
     generate_profiling_report,
 )
 

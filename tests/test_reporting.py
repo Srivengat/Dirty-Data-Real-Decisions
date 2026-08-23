@@ -1,6 +1,5 @@
 """Unit tests for Module 14: Reporting Engine."""
 
-from pathlib import Path
 
 import pandas as pd
 import pytest
