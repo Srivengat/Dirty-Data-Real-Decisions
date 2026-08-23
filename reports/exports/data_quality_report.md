@@ -1,6 +1,6 @@
 # Data Quality Assessment Report: `case_management_raw.csv`
 
-**Audit Timestamp:** 2026-08-22T23:49:04.882166
+**Audit Timestamp:** 2026-08-23T11:02:19.175434
 
 ## 1. Executive Quality Scorecard
 

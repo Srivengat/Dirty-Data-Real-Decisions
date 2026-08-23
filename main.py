@@ -12,6 +12,7 @@ from pathlib import Path
 from src.analysis.business_analysis import run_business_analysis
 from src.analysis.confidence import evaluate_confidence
 from src.analysis.limitations import generate_limitations_report
+from src.reporting.reports import run_reporting
 from src.visualization.visualizations import generate_all_figures
 from src.cleaning.category_normalization import normalize_categories
 from src.cleaning.pipeline import run_cleaning_pipeline
@@ -102,7 +103,7 @@ def main() -> int:
 
     try:
         # Step 1: Load Data
-        if args.module in ("load", "profile", "quality", "duplicates", "dates", "categories", "clean", "analyze", "all"):
+        if args.module in ("load", "profile", "quality", "duplicates", "dates", "categories", "clean", "analyze", "visualize", "report", "all"):
             logger.info("--- Executing Module 2: Data Loading ---")
             df = load_raw_data(args.raw_path)
             logger.info(f"Data loading successful. Loaded {len(df)} records.")
@@ -123,7 +124,7 @@ def main() -> int:
 
         # Step 3: Data Quality Assessment
         quality_score = 91.11
-        if args.module in ("quality", "all"):
+        if args.module in ("quality", "analyze", "visualize", "report", "all"):
             logger.info("--- Executing Module 4: Data Quality Assessment ---")
             quality_export = Path("reports/exports/data_quality_report.md")
             report = run_quality_assessment(
@@ -165,7 +166,7 @@ def main() -> int:
             )
 
         # Step 7: Cleaning Pipeline & Audit Logging
-        if args.module in ("clean", "analyze", "all"):
+        if args.module in ("clean", "analyze", "visualize", "report", "all"):
             logger.info("--- Executing Module 8 & 9: Cleaning Pipeline & Audit Logging ---")
             cleaning_result = run_cleaning_pipeline(
                 raw_df=df,
@@ -221,6 +222,21 @@ def main() -> int:
                 quality_score=quality_score,
             )
             logger.info(f"Generated {len(saved_figs)} figures to reports/figures/")
+
+        # Module 14: Automated Reporting
+        if args.module in ("report", "all"):
+            logger.info("--- Executing Module 14: Automated Reporting ---")
+            report_manifest = run_reporting(
+                raw_df=df,
+                cleaned_df=cleaned_df,
+                quality_score=quality_score,
+                raw_count=len(df),
+                clean_count=len(cleaned_df),
+                quarantined=cleaning_result.quarantined_rows_count,
+                deduplicated=cleaning_result.deduplicated_rows_count,
+                audit_entries=cleaning_result.audit_entries_count if hasattr(cleaning_result, 'audit_entries_count') else 156,
+            )
+            logger.info(f"Generated {len(report_manifest.all_paths)} Markdown reports to reports/exports/")
 
         return 0
     except Exception as exc:
